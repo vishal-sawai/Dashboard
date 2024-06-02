@@ -115,24 +115,53 @@ const Dashboard = () => {
                         </BarChart>
                     </ResponsiveContainer>
                 </div>
+                <div className='lg:flex'>
+                    {/* Destination IPs with Most Alerts */}
+                    <div className="bg-gray-700 p-4 rounded grow mb-5">
+                        <h2 className="text-xl mb-2">Destination IPs with Most Alerts</h2>
+                        <ResponsiveContainer width="100%" height={300}>
+                            <BarChart
+                                data={destinationIpsWithMostAlerts}
+                                margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
+                            >
+                                <CartesianGrid strokeDasharray="3 3" />
+                                <XAxis dataKey="ip" />
+                                <YAxis />
+                                <Tooltip />
+                                <Legend />
+                                <Bar dataKey="count" fill="#82ca9d" />
+                            </BarChart>
+                        </ResponsiveContainer>
+                    </div>
+                    {/* Alert Types Distribution */}
+                    <div className="bg-gray-700 p-4 rounded grow mb-5">
+                        <h2 className="text-xl mb-2">Alert Types Distribution</h2>
+                        <ResponsiveContainer width="100%" height={300}>
 
-                {/* Destination IPs with Most Alerts */}
-                <div className="bg-gray-700 p-4 rounded grow mb-5">
-                    <h2 className="text-xl mb-2">Destination IPs with Most Alerts</h2>
-                    <ResponsiveContainer width="100%" height={300}>
-                        <BarChart
-                            data={destinationIpsWithMostAlerts}
-                            margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
-                        >
-                            <CartesianGrid strokeDasharray="3 3" />
-                            <XAxis dataKey="ip" />
-                            <YAxis />
-                            <Tooltip />
-                            <Legend />
-                            <Bar dataKey="count" fill="#82ca9d" />
-                        </BarChart>
-                    </ResponsiveContainer>
+                            <PieChart
+                            // width={500}
+                            //  height={300}
+                            >
+                                <Pie
+                                    data={alertTypesDistribution}
+                                    dataKey="count"
+                                    nameKey="type"
+                                    cx="50%"
+                                    cy="50%"
+                                    outerRadius={100}
+                                    fill="#8884d8"
+                                >
+                                    {alertTypesDistribution.map((entry, index) => (
+                                        <Cell key={`cell-${index}`} fill={index % 2 === 0 ? '#82ca9d' : '#8884d8'} />
+                                    ))}
+                                </Pie>
+                                <Tooltip />
+                                <Legend />
+                            </PieChart>
+                        </ResponsiveContainer>
+                    </div>
                 </div>
+
 
                 {/* Alerts by Severity */}
                 <div className="bg-gray-700 p-4 rounded grow mb-5">
@@ -154,33 +183,7 @@ const Dashboard = () => {
                     </ResponsiveContainer>
                 </div>
 
-                {/* Alert Types Distribution */}
-                <div className="bg-gray-700 p-4 rounded grow mb-5">
-                    <h2 className="text-xl mb-2">Alert Types Distribution</h2>
-                    <ResponsiveContainer width="100%" height={300}>
 
-                        <PieChart
-                        // width={500}
-                        //  height={300}
-                        >
-                            <Pie
-                                data={alertTypesDistribution}
-                                dataKey="count"
-                                nameKey="type"
-                                cx="50%"
-                                cy="50%"
-                                outerRadius={100}
-                                fill="#8884d8"
-                            >
-                                {alertTypesDistribution.map((entry, index) => (
-                                    <Cell key={`cell-${index}`} fill={index % 2 === 0 ? '#82ca9d' : '#8884d8'} />
-                                ))}
-                            </Pie>
-                            <Tooltip />
-                            <Legend />
-                        </PieChart>
-                    </ResponsiveContainer>
-                </div>
 
             </div>
         </div>
