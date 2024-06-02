@@ -77,9 +77,11 @@ const Dashboard = () => {
                 <h1 className="text-2xl text-center w-full">Network Security Dashboard</h1>
             </div>
 
-            {/* Alerts over Time */}
+
             <div className="w-full grow">
-                <div className="bg-gray-700 p-4 rounded grow">
+
+                {/* Alerts Over Time */}
+                <div className="bg-gray-700 p-4 rounded grow mb-5">
                     <h2 className="text-xl mb-2">Alerts Over Time</h2>
                     <ResponsiveContainer width="100%" height={300}>
                         <LineChart
@@ -97,7 +99,7 @@ const Dashboard = () => {
                 </div>
 
                 {/* Source IPs with Most Alerts */}
-                <div className="bg-gray-700 p-4 rounded grow">
+                <div className="bg-gray-700 p-4 rounded grow mb-5">
                     <h2 className="text-xl mb-2">Source IPs with Most Alerts</h2>
                     <ResponsiveContainer width="100%" height={300}>
                         <BarChart
@@ -115,7 +117,7 @@ const Dashboard = () => {
                 </div>
 
                 {/* Destination IPs with Most Alerts */}
-                <div className="bg-gray-700 p-4 rounded grow">
+                <div className="bg-gray-700 p-4 rounded grow mb-5">
                     <h2 className="text-xl mb-2">Destination IPs with Most Alerts</h2>
                     <ResponsiveContainer width="100%" height={300}>
                         <BarChart
@@ -133,7 +135,7 @@ const Dashboard = () => {
                 </div>
 
                 {/* Alerts by Severity */}
-                <div className="bg-gray-700 p-4 rounded grow">
+                <div className="bg-gray-700 p-4 rounded grow mb-5">
                     <h2 className="text-xl mb-2">Alerts by Severity</h2>
                     <ResponsiveContainer width="100%" height={300}>
                         <BarChart
@@ -153,7 +155,7 @@ const Dashboard = () => {
                 </div>
 
                 {/* Alert Types Distribution */}
-                <div className="bg-gray-700 p-4 rounded grow">
+                <div className="bg-gray-700 p-4 rounded grow mb-5">
                     <h2 className="text-xl mb-2">Alert Types Distribution</h2>
                     <ResponsiveContainer width="100%" height={300}>
 
